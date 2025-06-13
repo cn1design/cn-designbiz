@@ -1,0 +1,409 @@
+/**
+Theme Name: Astra Child
+Author: Brainstorm Force
+Author URI: http://wpastra.com/about/
+Description: Astra is the fastest, fully customizable & beautiful theme suitable for blogs, personal portfolios and business websites. It is very lightweight (less than 50KB on frontend) and offers unparalleled speed. Built with SEO in mind, Astra comes with schema.org code integrated so search engines will love your site. Astra offers plenty of sidebar options and widget areas giving you a full control for customizations. Furthermore, we have included special features and templates so feel free to choose any of your favorite page builder plugin to create pages flexibly. Some of the other features: # WooCommerce Ready # Responsive # Compatible with major plugins # Translation Ready # Extendible with premium addons # Regularly updated # Designed, Developed, Maintained & Supported by Brainstorm Force. Looking for a perfect base theme? Look no further. Astra is fast, fully customizable and beautiful theme!
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: astra-child
+Template: astra
+*/
+
+/* ダウンロードボックス */
+
+.my-download-box {
+  border: 1px solid #ddd;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 6px;
+  transition: opacity 0.3s;
+}
+
+.my-download-box__content {
+  display: flex;
+  align-items: center;
+}
+
+.my-download-box__icon {
+  width: 48px;
+  height: auto;
+  margin-right: 12px;
+}
+
+.my-download-box__title {
+  font-weight: bold;
+  font-size: 16px;
+  color: #303030;
+}
+
+.my-download-box__size {
+  color: #555;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.my-download-btn {
+  background: #4285f4;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+/* ダウンロードボタン　ホバー、フォーカス */
+.my-download-btn:hover,
+.my-download-btn:focus {
+  background: #5b9bf8;
+  color: #fff;
+}
+
+.my-download-btn::after {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* 画像 */
+figure {
+  margin-bottom: 1em;
+}
+
+/* 埋め込み動画サイズ */
+iframe {
+  aspect-ratio: 16 / 9;
+  height: 100% !important;
+  width: 100% !important;
+}
+
+/* グループブロック */
+.wp-block-group {
+  margin-bottom: 24px;
+}
+
+/*-----------------------------------------------------------------
+ LearnDash CSS 
+-----------------------------------------------------------------*/
+.learndash-wrapper {
+  margin-bottom: 2em;
+}
+
+/* テーブルコンテンツ */
+.ld-focus-content .learndash-wrapper .ld-table-list .ld-table-list-items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* フォーカスコンテンツ */
+.learndash-wrapper .ld-focus.ld-focus-position-right .ld-focus-content,
+.learndash-wrapper .ld-focus.ld-focus-position-rtl-left .ld-focus-content {
+  margin-top: 0;
+}
+
+.learndash-wrapper .ld-table-list .ld-table-list-header {
+  padding: 1rem;
+}
+
+/* コンテンツエリア */
+.learndash-wrapper .ld-focus .ld-focus-main .ld-focus-content {
+  padding-top: clamp(1.5rem, 5vw, 2.5rem) !important;
+  padding-left: clamp(1rem, 5vw, 2.5rem) !important;
+  padding-bottom: clamp(1rem, 5vw, 2.5rem) !important;
+  padding-right: clamp(1rem, 5vw, 2.5rem) !important;
+}
+
+/* 見出し H2 */
+h2,
+.learndash-wrapper .ld-item-list.ld-lesson-list .ld-section-heading h2 {
+  padding: 0.25em 0.25em 0.25em 0.5em;
+  border-left: 5px solid #303030;
+}
+
+/* 見出し H3 */
+h3,
+.entry-content h3 {
+  margin-bottom: 16px;
+}
+
+/* リスト */
+.learndash-wrapper .ld-focus.ld-focus-position-right .ld-tab-content ul:not(.blocks-gallery-grid):not(.wp-block-gallery),
+.learndash-wrapper .ld-focus.ld-focus-position-right .ld-tab-content ol:not(.blocks-gallery-grid):not(.wp-block-gallery) {
+  padding-left: 1em;
+}
+
+/*-----------------------------------------------------------------
+ アコーディオン
+-----------------------------------------------------------------*/
+/* アコーディオン コンテンツ背景色 */
+.kt-accordion-id756_69e55d-8c .kt-accordion-panel-inner {
+  padding-top: 0;
+  background-color: #f8f8f8 !important;
+}
+
+/* アコーディオン 見出しフォント */
+.kt-accordion-wrap .wp-block-kadence-pane .kt-accordion-header-wrap .kt-blocks-accordion-header {
+  font-size: clamp(18px, 2vw, 24px) !important;
+}
+
+/* アコーディオン pタグ余白 */
+:root :where(.is-layout-constrained) .modal-open-button {
+  margin-block-start: 8px;
+  text-decoration: underline;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+
+/*-----------------------------------------------------------------
+ モーダル
+-----------------------------------------------------------------*/
+/* モーダル 親要素 */
+.custom-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin-left: 0 !important;
+}
+
+/* オーバーレイ */
+.custom-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+/* モーダルコンテンツ */
+.custom-modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  width: calc(100% - 32px);
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  z-index: 10000;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* 閉じるボタン */
+.custom-modal-close {
+  position: absolute;
+  right: .5rem;
+  top: .5rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: transform 0.2s ease;
+  color: #666;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.custom-modal-close:hover {
+  transform: scale(1.1);
+  color: #333;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* モーダル表示状態 */
+.custom-modal.show {
+  display: block;
+}
+
+/* モーダル表示時の背景オーバーレイ */
+.custom-modal.show .custom-modal-overlay {
+  animation: fadeOverlay 0.3s ease forwards;
+}
+
+/* モーダルコンテンツ */
+.custom-modal.show .custom-modal-content {
+  animation: fadeInModal 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* モーダル非表示状態 */
+.custom-modal.hide .custom-modal-overlay {
+  animation: fadeOutOverlay 0.3s ease forwards;
+}
+
+.custom-modal.hide .custom-modal-content {
+  animation: fadeOutModal 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* アニメーション定義 */
+@keyframes fadeInModal {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes fadeOutModal {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+}
+
+@keyframes fadeOverlay {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOutOverlay {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+/* モーダル内部コンテンツ */
+.custom-modal-inner {
+  display: grid;
+  grid-template-columns: 4fr 6fr;
+  gap: 1.5rem;
+  align-items: start;
+  max-width: 900px;
+}
+
+.custom-modal-inner figure {
+  margin-bottom: 0;
+}
+
+.custom-modal-inner>p {
+  display: none;
+}
+
+.custom-modal-inner .wp-block-group p,
+.custom-modal-inner .wp-block-group figure {
+  flex: 1 1 48%;
+}
+
+.custom-modal-content-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+/* サイドメニュー対応 */
+.ld-focus.ld-focus-position-right:not(.ld-focus-sidebar-collapsed) .custom-modal.show {
+  width: calc(100vw - 350px);
+  max-width: 100%;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 640px) {
+
+  .learndash-wrapper .ld-focus.ld-focus-position-right .ld-focus-main .ld-focus-content,
+  .learndash-wrapper .ld-focus.ld-focus-position-right.ld-focus-sidebar-collapsed .ld-focus-main .ld-focus-content {
+    margin-top: 0;
+    padding: 1.5em 1em;
+  }
+
+  .learndash-wrapper .ld-table-list .ld-table-list-header {
+    flex-direction: row !important;
+    gap: 16px;
+  }
+
+  .learndash-wrapper .ld-table-list .ld-table-list-header .ld-table-list-title {
+    flex: inherit;
+  }
+
+  .learndash-wrapper .ld-table-list .ld-table-list-header .ld-table-list-lesson-details {
+    margin: 0;
+  }
+
+  .ld-icon {
+    display: block;
+  }
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 544px) {
+
+  /*---------------------------------------------------------------
+   LearnDash 
+  ---------------------------------------------------------------*/
+  /* 前/次のトピックボタン */
+  .learndash-wrapper .ld-focus.ld-focus-position-right .ld-focus-header .ld-content-actions .ld-content-action {
+    padding: 0;
+  }
+
+  /*---------------------------------------------------------------
+   モーダル 
+  ---------------------------------------------------------------*/
+  /* モーダル */
+  .custom-modal-content-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .custom-modal-content {
+    padding: 1.5rem;
+  }
+
+  .custom-modal-inner {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  /*---------------------------------------------------------------
+   ブロックエディタ block editor 
+  ---------------------------------------------------------------*/
+  /* block editor group grid */
+  .wp-block-group-is-layout-grid {
+    grid-template-columns: 1fr;
+  }
+
+  h1,
+  .entry-content h1 {
+    font-size: 1.5rem
+  }
+
+}
