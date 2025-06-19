@@ -1,0 +1,35 @@
+// style.scss
+// 共通スタイルや変数、mixinなどをここに記述
+
+@use "responsive";
+@use "accordion";
+@use "swiper";
+@use "download";
+@use "learndash";
+
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  color: #222;
+  background: #fff;
+}
+
+/* -----------------------------------------------------
+*
+* astraテーマのカスタマイズ HOME 下層ページ 投稿ページなど
+*
+----------------------------------------------------- */
+.site-content {
+}
+.entry-meta {
+  display: none;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+figure {
+  margin-bottom: 1rem;
+}

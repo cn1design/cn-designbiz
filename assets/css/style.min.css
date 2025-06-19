@@ -1,9 +1,9 @@
-@charset "UTF-8";
 .accordion {
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
+
 .accordion__header {
   background: #f5f5f5;
   font-size: clamp(18px, 2vw, 24px);
@@ -12,11 +12,13 @@
   cursor: pointer;
   border-bottom: 1px solid #eee;
 }
+
 .accordion__content {
   background: #fff;
   padding: 1em;
   display: none;
 }
+
 .accordion.is-open .accordion__content {
   display: block;
 }
@@ -36,8 +38,7 @@
   justify-content: flex-start;
 }
 
-.swiper-button-next,
-.swiper-button-prev {
+.swiper-button-next, .swiper-button-prev {
   color: #6c3fc5;
   background: none;
   border: none;
@@ -49,11 +50,6 @@
   background: #6c3fc5;
 }
 
-/* -----------------------------------------------------
-*
-* ダウンロードボックス
-*
------------------------------------------------------ */
 .my-download-box {
   display: flex;
   align-items: center;
@@ -65,6 +61,7 @@
   background: #fafaff;
   box-shadow: 0 2px 8px rgba(60, 60, 100, 0.04);
 }
+
 .my-download-box__content {
   display: flex;
   align-items: center;
@@ -72,6 +69,7 @@
   min-width: 0;
   flex: 1 1 auto;
 }
+
 .my-download-box__icon {
   width: 48px;
   height: 48px;
@@ -79,8 +77,10 @@
   border-radius: 6px;
   background: #fff;
   box-shadow: 0 1px 4px rgba(60, 60, 100, 0.06);
+  -o-object-fit: contain;
   object-fit: contain;
 }
+
 .my-download-box__title {
   font-size: clamp(0.85rem, 2.3vw, 1.05rem);
   font-weight: bold;
@@ -95,6 +95,7 @@
   display: block;
   word-break: break-all;
 }
+
 .my-download-box__size {
   font-size: 0.95rem;
   color: #888;
@@ -117,6 +118,7 @@
   position: relative;
   padding-right: 2.5em;
 }
+
 .my-download-btn::after {
   content: "";
   display: inline-block;
@@ -131,6 +133,7 @@
   transform: translateY(-50%);
   pointer-events: none;
 }
+
 .my-download-btn:hover, .my-download-btn:focus {
   background: #8e5cf7;
   color: #fff;
@@ -165,61 +168,19 @@
     padding: 0.9em 0;
   }
 }
-/* -----------------------------------------------------
-*
-* 外部リンク
-*
------------------------------------------------------ */
-p.external-link a {
-  position: relative;
-  padding-left: 1.6em;
-}
-p.external-link a::before {
-  content: "";
-  display: inline-block;
-  width: 1.1em;
-  height: 1.1em;
-  background-image: url("data:image/svg+xml,%3Csvg fill='none' stroke='currentColor' stroke-width='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'/%3E%3Cpolyline points='15 3 21 3 21 9'/%3E%3Cline x1='10' x2='21' y1='14' y2='3'/%3E%3C/svg%3E");
-  background-size: contain;
-  background-repeat: no-repeat;
-  position: absolute;
-  top: 0;
-  left: 0;
-  color: #6c3fc5;
-  opacity: 0.85;
-  pointer-events: none;
-  content-visibility: auto;
-}
-
-/* -----------------------------------------------------
-*
-* LearnDash編集画面のコンテンツ
-*
------------------------------------------------------ */
-.ld-focus-content {
-  /* -------------------------- 
-  ページネーション
-  -------------------------- */
-  /* -------------------------- 
-  ページネーション
-  -------------------------- */
-}
 .ld-focus-content .ld-content-actions {
   justify-content: center;
 }
+
 .ld-focus-content .ld-content-actions .ld-button {
   border-radius: 40px;
   padding: 1em 0.6em;
 }
-.ld-focus-content .ld-content-actions .ld-button .ld-text {
-  padding: 0 0.8em;
-}
+
 .ld-focus-content .ld-content-actions .ld-content-action {
   padding: 8px;
 }
-.ld-focus-content .ld-content-actions .ld-content-action .sfwd-mark-complete {
-  margin-bottom: 1em;
-}
+
 .ld-focus-content .ld-content-actions .ld-course-step-back {
   display: inline-block;
   background: #eee;
@@ -227,6 +188,7 @@ p.external-link a::before {
   border-radius: 999px;
   transition: background 0.2s, color 0.2s, box-shadow 0.2s;
 }
+
 .ld-focus-content .ld-content-actions .ld-course-step-back:hover, .ld-focus-content .ld-content-actions .ld-course-step-back:focus {
   background: #f4f4f4;
 }
@@ -237,11 +199,6 @@ body {
   background: #fff;
 }
 
-/* -----------------------------------------------------
-*
-* astraテーマのカスタマイズ HOME 下層ページ 投稿ページなど
-*
------------------------------------------------------ */
 .entry-meta {
   display: none;
 }
@@ -256,4 +213,6 @@ figure {
   margin-bottom: 1rem;
 }
 
-/*# sourceMappingURL=style.css.map */
+
+
+/*# sourceMappingURL=style.min.css.map */

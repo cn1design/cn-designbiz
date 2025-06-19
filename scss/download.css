@@ -1,54 +1,4 @@
 @charset "UTF-8";
-.accordion {
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-}
-.accordion__header {
-  background: #f5f5f5;
-  font-size: clamp(18px, 2vw, 24px);
-  font-weight: bold;
-  padding: 1em;
-  cursor: pointer;
-  border-bottom: 1px solid #eee;
-}
-.accordion__content {
-  background: #fff;
-  padding: 1em;
-  display: none;
-}
-.accordion.is-open .accordion__content {
-  display: block;
-}
-
-.swiper-container {
-  padding-bottom: 32px;
-}
-
-.swiper-slide {
-  background: #222;
-  color: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  min-height: 320px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.swiper-button-next,
-.swiper-button-prev {
-  color: #6c3fc5;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  top: 40%;
-}
-
-.swiper-pagination-bullet-active {
-  background: #6c3fc5;
-}
-
 /* -----------------------------------------------------
 *
 * ダウンロードボックス
@@ -79,7 +29,8 @@
   border-radius: 6px;
   background: #fff;
   box-shadow: 0 1px 4px rgba(60, 60, 100, 0.06);
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .my-download-box__title {
   font-size: clamp(0.85rem, 2.3vw, 1.05rem);
@@ -190,70 +141,4 @@ p.external-link a::before {
   pointer-events: none;
   content-visibility: auto;
 }
-
-/* -----------------------------------------------------
-*
-* LearnDash編集画面のコンテンツ
-*
------------------------------------------------------ */
-.ld-focus-content {
-  /* -------------------------- 
-  ページネーション
-  -------------------------- */
-  /* -------------------------- 
-  ページネーション
-  -------------------------- */
-}
-.ld-focus-content .ld-content-actions {
-  justify-content: center;
-}
-.ld-focus-content .ld-content-actions .ld-button {
-  border-radius: 40px;
-  padding: 1em 0.6em;
-}
-.ld-focus-content .ld-content-actions .ld-button .ld-text {
-  padding: 0 0.8em;
-}
-.ld-focus-content .ld-content-actions .ld-content-action {
-  padding: 8px;
-}
-.ld-focus-content .ld-content-actions .ld-content-action .sfwd-mark-complete {
-  margin-bottom: 1em;
-}
-.ld-focus-content .ld-content-actions .ld-course-step-back {
-  display: inline-block;
-  background: #eee;
-  padding: 0.8em 2.2em;
-  border-radius: 999px;
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-}
-.ld-focus-content .ld-content-actions .ld-course-step-back:hover, .ld-focus-content .ld-content-actions .ld-course-step-back:focus {
-  background: #f4f4f4;
-}
-
-body {
-  font-family: "Noto Sans JP", sans-serif;
-  color: #222;
-  background: #fff;
-}
-
-/* -----------------------------------------------------
-*
-* astraテーマのカスタマイズ HOME 下層ページ 投稿ページなど
-*
------------------------------------------------------ */
-.entry-meta {
-  display: none;
-}
-
-iframe {
-  width: 100%;
-  height: 100%;
-  aspect-ratio: 16/9;
-}
-
-figure {
-  margin-bottom: 1rem;
-}
-
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=download.css.map */

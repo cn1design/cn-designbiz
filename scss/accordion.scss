@@ -1,0 +1,27 @@
+// accordion.scss
+// アコーディオン用のスタイル
+
+.accordion {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+
+  &__header {
+    background: #f5f5f5;
+    font-size: clamp(18px, 2vw, 24px);
+    font-weight: bold;
+    padding: 1em;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+  }
+
+  &__content {
+    background: #fff;
+    padding: 1em;
+    display: none;
+  }
+
+  &.is-open .accordion__content {
+    display: block;
+  }
+}

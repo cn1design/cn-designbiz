@@ -1,0 +1,8 @@
+{
+  "name": "astra-child-theme",
+  "version": "1.0.0",
+  "scripts": {
+    "sass:watch": "sass --watch scss/style.scss:style.css scss:assets/css --style=expanded --no-source-map"
+  },
+  "devDependencies": {}
+} 

@@ -1,0 +1,41 @@
+@charset "UTF-8";
+/* -----------------------------------------------------
+*
+* LearnDash編集画面のコンテンツ
+*
+----------------------------------------------------- */
+.ld-focus-content {
+  /* -------------------------- 
+  ページネーション
+  -------------------------- */
+  /* -------------------------- 
+  ページネーション
+  -------------------------- */
+}
+.ld-focus-content .ld-content-actions {
+  justify-content: center;
+}
+.ld-focus-content .ld-content-actions .ld-button {
+  border-radius: 40px;
+  padding: 1em 0.6em;
+}
+.ld-focus-content .ld-content-actions .ld-button .ld-text {
+  padding: 0 0.8em;
+}
+.ld-focus-content .ld-content-actions .ld-content-action {
+  padding: 8px;
+}
+.ld-focus-content .ld-content-actions .ld-content-action .sfwd-mark-complete {
+  margin-bottom: 1em;
+}
+.ld-focus-content .ld-content-actions .ld-course-step-back {
+  display: inline-block;
+  background: #eee;
+  padding: 0.8em 2.2em;
+  border-radius: 999px;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.ld-focus-content .ld-content-actions .ld-course-step-back:hover, .ld-focus-content .ld-content-actions .ld-course-step-back:focus {
+  background: #f4f4f4;
+}
+/*# sourceMappingURL=learndash.css.map */
