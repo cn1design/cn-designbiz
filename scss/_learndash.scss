@@ -1,0 +1,329 @@
+// learndash.scss
+// LearnDash既存設定のカスタマイズ
+
+/* -----------------------------------------------------
+*
+* 基本タグ
+*
+----------------------------------------------------- */
+// 完了しました
+.learndash-wrapper #sfwd-mark-complete:after,
+.learndash-wrapper .sfwd-mark-complete:after {
+  @media (max-width: 959px) {
+    right: 1.5em;
+  }
+}
+/* Hタグ pタグ リストタグ */
+.learndash-wrapper,
+.learndash-wrapper .ld-item-list.ld-lesson-list .ld-section-heading {
+  h2 {
+    position: relative;
+    margin-bottom: 1rem;
+    padding-top: 0.25rem;
+    padding-left: 20px;
+    padding-bottom: 0.25rem;
+    text-align: left;
+    &::before {
+      position: absolute;
+      content: "";
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 100%;
+      background-color: #222;
+    }
+  }
+
+  h3 {
+    margin-bottom: 0.5rem;
+  }
+
+  h4 {
+    position: relative;
+    margin-bottom: 4px;
+    padding-bottom: 4px;
+    &::before {
+      position: absolute;
+      content: "";
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background-image: linear-gradient(
+        90deg,
+        #222 0%,
+        #222 50%,
+        #555 50%,
+        #555 100%
+      );
+    }
+  }
+
+  p {
+    font-size: clamp(14px, 2vw, 16px);
+  }
+
+  ul,
+  ol > li {
+    font-size: clamp(14px, 2vw, 16px);
+    span {
+      svg {
+        font-size: clamp(14px, 1vw, 16px);
+      }
+    }
+    .kb-svg-icon-wrap {
+      margin-right: 6px;
+    }
+  }
+}
+
+/* 各チャプター見出しフォント */
+.learndash-wrapper .ld-item-list .ld-item-list-item {
+  .ld-item-name {
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .ld-item-details {
+    max-width: 89px;
+    width: 100%;
+  }
+}
+
+/* ログイン画面 */
+.login-password {
+  input[type="password"] {
+    height: 24px;
+  }
+}
+/* -----------------------------------------------------
+*
+* LearnDash編集画面のコンテンツ ld-focus-main 要素内
+*
+----------------------------------------------------- */
+.learndash-wrapper .ld-focus .ld-focus-header {
+  .ld-content-actions .ld-content-action {
+    @media (max-width: 599px) {
+      padding: 0;
+    }
+  }
+}
+.learndash-wrapper .ld-focus .ld-focus-main {
+  /* h1 スタイリング */
+  .ld-single-title {
+    padding: 5rem 5rem 3rem;
+    background: linear-gradient(135deg, #2c2c2c 0%, #303030 100%);
+    h1 {
+      max-width: 1008px;
+      margin: 0 auto;
+      color: #fff;
+    }
+    @media (max-width: 599px) {
+      padding: 1.5rem 1rem !important;
+      font-size: 1.6rem;
+    }
+  }
+  .ld-focus-content {
+    margin-top: -1rem;
+    padding-top: 0;
+  }
+
+  .learndash-wrapper .ld-tabs {
+    margin-top: clamp(1rem, 3vw, 2rem);
+  }
+  /* -------------------------- 
+    copyright コピーライト
+  -------------------------- */
+  .ast-footer-copyright {
+    padding: 0.5rem;
+    background: #111;
+    color: #fff;
+    text-align: center;
+  }
+}
+
+.ld-focus-content {
+  .learndash-wrapper {
+    ul.kt-svg-icon-list {
+      padding: 1rem 0.5rem 1rem 1rem !important;
+    }
+    /* -------------------------- 
+    一覧 セクション、トピック
+    -------------------------- */
+    .ld-table-list {
+      .ld-table-list-header {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+      .ld-table-list-item-preview {
+        padding: 1rem;
+      }
+    }
+    /* -------------------------- 
+    ページネーション 前へ戻る/次へ進む
+    -------------------------- */
+    .ld-content-actions {
+      justify-content: center;
+      // テーブル
+      .ld-button {
+        border-radius: 40px;
+        padding: 1em 0.6em;
+        .ld-text {
+          padding: 0 0.8em;
+        }
+      }
+      .ld-content-action {
+        padding: 8px;
+        .sfwd-mark-complete {
+          margin-bottom: 1em;
+        }
+      }
+      // 中央ボタン：チャプター、セクションに戻る
+      .ld-course-step-back {
+        justify-content: center;
+        background: #eee;
+        padding: 0.8em 2.2em;
+        border-radius: 999px;
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+
+        &:hover,
+        &:focus {
+          background: #f4f4f4;
+        }
+      }
+    }
+  }
+}
+
+/* -----------------------------------------------------
+*
+* LDフッター共通リンクボタン
+*
+----------------------------------------------------- */
+
+.ld-footer-category-content {
+  padding: 3rem;
+  background-color: #222;
+
+  @media (max-width: 599px) {
+    padding: 2rem 1rem;
+  }
+}
+.ld-footer-category-links {
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2em;
+  margin: 0 auto;
+  text-align: center;
+
+  .ld-footer-btn {
+    display: inline-block;
+    padding: 1em;
+    color: #fff;
+    border: 1px solid #fff !important;
+    border-radius: 2.5em;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.08rem;
+    letter-spacing: 0.04em;
+    box-shadow: 0 4px 18px rgba(79, 140, 255, 0.13),
+      0 1.5px 4px rgba(0, 0, 0, 0.07);
+    transition: background 0.25s, box-shadow 0.25s, transform 0.15s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    border: none;
+    outline: none;
+
+    // 矢印を追加
+    &::after {
+      position: absolute;
+      content: "";
+      width: 20px;
+      height: 20px;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: transform 0.25s ease;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z'/%3E%3C/svg%3E");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      @media (max-width: 599px) {
+        width: 16px;
+        height: 16px;
+        right: 8px;
+      }
+    }
+
+    &::before {
+      position: absolute;
+      content: "";
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0;
+      transition: opacity 0.25s;
+      z-index: -1;
+      border-radius: inherit;
+    }
+    &:hover,
+    &:focus {
+      box-shadow: 0 8px 24px rgba(55, 55, 55, 0.18),
+        0 2px 8px rgba(0, 0, 0, 0.1);
+      transform: translateY(-2px) scale(1.01);
+
+      // ホバー時に矢印を右側に移動
+      &::after {
+        transform: translateY(-50%) translateX(4px);
+      }
+
+      &::before {
+        opacity: 1;
+      }
+    }
+    &:active {
+      transform: scale(0.98);
+      box-shadow: 0 2px 8px rgba(79, 140, 255, 0.1);
+    }
+  }
+}
+
+// スマホ対応
+@media (max-width: 599px) {
+  .ld-footer-category-links {
+    flex-direction: column;
+    gap: 1em;
+    .ld-footer-btn {
+      width: 100%;
+      font-size: 1rem;
+      padding: 0.5em 0;
+    }
+  }
+}
+
+/* -----------------------------------------------------
+*
+* 案件獲得サポート ID:326
+*
+----------------------------------------------------- */
+
+/* サイドバー非表示 レイアウト調整 */
+.course-project_order_support,
+.course-pro_only {
+  .learndash-wrapper .ld-focus {
+    .ld-focus-sidebar {
+      display: none;
+    }
+    .ld-focus-main {
+      margin-right: 0;
+    }
+    .learndash-wrapper.learndash-wrap.learndash-shortcode-wrap {
+      display: none;
+    }
+  }
+}

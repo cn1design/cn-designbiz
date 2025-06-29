@@ -1,54 +1,4 @@
 @charset "UTF-8";
-.accordion {
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-}
-.accordion__header {
-  background: #f5f5f5;
-  font-size: clamp(18px, 2vw, 24px);
-  font-weight: bold;
-  padding: 1em;
-  cursor: pointer;
-  border-bottom: 1px solid #eee;
-}
-.accordion__content {
-  background: #fff;
-  padding: 1em;
-  display: none;
-}
-.accordion.is-open .accordion__content {
-  display: block;
-}
-
-.swiper-container {
-  padding-bottom: 32px;
-}
-
-.swiper-slide {
-  background: #222;
-  color: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  min-height: 320px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.swiper-button-next,
-.swiper-button-prev {
-  color: #6c3fc5;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  top: 40%;
-}
-
-.swiper-pagination-bullet-active {
-  background: #6c3fc5;
-}
-
 /* -----------------------------------------------------
 *
 * ダウンロードボックス
@@ -61,6 +11,7 @@
   gap: 1rem;
   border: 1px solid #e0e0e0;
   border-radius: 10px;
+  margin-bottom: 1.5rem !important;
   padding: 1rem;
   background: #fafaff;
   box-shadow: 0 2px 8px rgba(60, 60, 100, 0.04);
@@ -171,9 +122,13 @@
 * 外部リンク
 *
 ----------------------------------------------------- */
+p.external-link {
+  margin-top: 0;
+}
 p.external-link a {
   position: relative;
   padding-left: 1.6em;
+  font-weight: bold;
 }
 p.external-link a::before {
   content: "";
@@ -192,59 +147,948 @@ p.external-link a::before {
   content-visibility: auto;
 }
 
+p.internal-link {
+  margin-top: 0;
+}
+p.internal-link a {
+  position: relative;
+  padding-left: 1.6em;
+  font-weight: bold;
+}
+p.internal-link a::before {
+  content: "";
+  display: inline-block;
+  width: 1.1em;
+  height: 1.1em;
+  background-image: url("data:image/svg+xml,%3Csvg fill='none' stroke='currentColor' stroke-width='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 4v16m8-8H4'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #3fc56c;
+  opacity: 0.85;
+  pointer-events: none;
+  content-visibility: auto;
+}
+
+.accordion {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+.accordion__header {
+  background: #f5f5f5;
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: bold;
+  padding: 1em;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+.accordion__content {
+  background: #fff;
+  padding: 1em;
+  display: none;
+}
+.accordion.is-open .accordion__content {
+  display: block;
+}
+
+/* アコーディオン上下間の余白 */
+.wp-block-kadence-accordion.alignnone {
+  margin-bottom: 2rem;
+}
+.wp-block-kadence-accordion.alignnone .kt-row-column-wrap {
+  padding: 1.5rem 16px 16px 16px;
+}
+.wp-block-kadence-accordion.alignnone .kt-row-column-wrap .kb-adv-text-inner {
+  font-size: 1.5rem;
+}
+
+.wp-block-kadence-pane h2::before {
+  content: none;
+}
+.wp-block-kadence-pane .kt-row-column-wrap {
+  padding-top: 0;
+}
+.wp-block-kadence-pane h2.kt-accordion-header-wrap::before {
+  content: none;
+}
+.wp-block-kadence-pane h2.kt-accordion-header-wrap .kt-blocks-accordion-title {
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: bold !important;
+}
+.wp-block-kadence-pane h2.kt-accordion-header-wrap .kt-blocks-accordion-header {
+  border: 1px solid #444 !important;
+  border-radius: 8px !important;
+}
+
+/* アコーディオン 子要素 詳細リスト */
+.accordion-inner-detail .kt-blocks-accordion-header {
+  padding: 12px;
+}
+.accordion-inner-detail .kt-blocks-accordion-header .kt-blocks-accordion-title {
+  font-size: 16px !important;
+  font-weight: bold !important;
+}
+
+@media (max-width: 599px) {
+  /* ページ親要素 */
+  .faq_page,
+.wp-block-kadence-accordion.alignnone,
+.kt-row-column-wrap {
+    padding: 0 !important;
+  }
+  .kt-accordion-panel-inner {
+    padding: 16px 0 0 !important;
+  }
+  .kt-accordion-panel-inner .kb-row-layout-wrap {
+    background-color: transparent;
+  }
+  .wp-block-kadence-pane h2::before {
+    content: none;
+  }
+  .wp-block-kadence-accordion.alignnone .kt-row-column-wrap {
+    padding: 16px 0 0;
+  }
+  .wp-block-kadence-accordion.alignnone .kt-row-column-wrap .kb-adv-text-inner {
+    font-size: 1.2rem;
+  }
+  /* アコーディオン 子要素 詳細リスト */
+  .accordion-inner-detail .kt-accordion-inner-wrap {
+    gap: 0.5rem !important;
+  }
+  .accordion-inner-detail .kt-blocks-accordion-header {
+    padding: 12px !important;
+    background-color: #f2f2f2 !important;
+  }
+}
 /* -----------------------------------------------------
 *
-* LearnDash編集画面のコンテンツ
+* マイページ my-page footer-parts
 *
 ----------------------------------------------------- */
-.ld-focus-content {
+.my-page {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 40px;
+  padding: 0 48px !important;
+  align-items: start;
+  /* ボタンリンクのコンテナ */
+}
+.my-page.is-layout-constrained {
+  overflow: visible;
+}
+@media (max-width: 829px) {
+  .my-page {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 0 !important;
+  }
+}
+.my-page .learndash-wrapper {
+  width: 100%;
+}
+.my-page .learndash-wrapper .ld-item-list {
+  margin-top: 0;
+}
+.my-page .my-page__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 40px;
+  width: 100%;
+  margin-bottom: 2rem;
+  padding: 0 !important;
+  /* 注意: 親要素に overflow: hidden; があると追従が機能しない場合があります */
+  /* 各ボタンのラッパー（wp-block-group） */
+}
+@media (max-width: 829px) {
+  .my-page .my-page__content {
+    top: 0;
+    flex-direction: row;
+    gap: 1rem;
+    position: static; /* 横並びの際は追従を解除 */
+  }
+  .my-page .my-page__content > .wp-block-group {
+    flex: 1;
+  }
+}
+@media (max-width: 799px) {
+  .my-page .my-page__content {
+    flex-direction: column;
+  }
+}
+.my-page .my-page__content > .wp-block-group {
+  position: relative;
+  width: 100%;
+  background-color: #222;
+  color: #fff;
+  padding: 1.2em;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+.my-page .my-page__content > .wp-block-group:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.my-page,
+.page-link {
+  /* 英語タイトル */
+  /* 日本語リンク */
+  /* --- アイコンの出し分け --- */
+  /* :has()でリンク先を判別してアイコンを設定 */
+}
+.my-page .my-page__content,
+.page-link .my-page__content {
+  margin-top: 0 !important;
+}
+.my-page .my-page__content > .wp-block-group,
+.page-link .my-page__content > .wp-block-group {
+  margin: 0 !important;
+}
+.my-page .my-page__content p,
+.page-link .my-page__content p {
+  margin: 0;
+}
+.my-page .my-page__link-en,
+.page-link .my-page__link-en {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5em;
+  font-size: 0.9em;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin-bottom: 0.5em;
+  pointer-events: none;
+}
+.my-page .my-page__link-en::before,
+.page-link .my-page__link-en::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.my-page .my-page__link a,
+.page-link .my-page__link a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+}
+.my-page .my-page__link a::after,
+.page-link .my-page__link a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.my-page .wp-block-group:has(a[href*="/guideline"]) .my-page__link-en::before,
+.page-link .wp-block-group:has(a[href*="/guideline"]) .my-page__link-en::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z'/%3E%3C/svg%3E");
+}
+.my-page .wp-block-group:has(a[href*="/faq"]) .my-page__link-en::before,
+.page-link .wp-block-group:has(a[href*="/faq"]) .my-page__link-en::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M19 2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h4l3 3 3-3h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-6 16h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 11.9 13 12.5 13 14h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z'/%3E%3C/svg%3E");
+}
+.my-page .wp-block-group:has(a[href*="/tips"]) .my-page__link-en::before,
+.page-link .wp-block-group:has(a[href*="/tips"]) .my-page__link-en::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z'/%3E%3C/svg%3E");
+}
+
+@media (max-width: 799px) {
+  .wp-block-group.page-link {
+    padding: 0;
+  }
+}
+.wp-block-group.page-link .my-page__content {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  margin-bottom: 2rem;
+  padding: 0 16px !important;
+  /* 各ボタンのラッパー（wp-block-group） */
+}
+.wp-block-group.page-link .my-page__content > .wp-block-group {
+  position: relative;
+  width: 100%;
+  background-color: #222;
+  color: #fff;
+  padding: 1.2em;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+.wp-block-group.page-link .my-page__content > .wp-block-group:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 799px) {
+  .wp-block-group.page-link .my-page__content {
+    flex-direction: column;
+  }
+}
+
+/* -----------------------------------------------------
+*
+* 基本タグ
+*
+----------------------------------------------------- */
+@media (max-width: 959px) {
+  .learndash-wrapper #sfwd-mark-complete:after,
+.learndash-wrapper .sfwd-mark-complete:after {
+    right: 1.5em;
+  }
+}
+
+/* Hタグ pタグ リストタグ */
+.learndash-wrapper h2,
+.learndash-wrapper .ld-item-list.ld-lesson-list .ld-section-heading h2 {
+  position: relative;
+  margin-bottom: 1rem;
+  padding-top: 0.25rem;
+  padding-left: 20px;
+  padding-bottom: 0.25rem;
+  text-align: left;
+}
+.learndash-wrapper h2::before,
+.learndash-wrapper .ld-item-list.ld-lesson-list .ld-section-heading h2::before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 100%;
+  background-color: #222;
+}
+.learndash-wrapper h3,
+.learndash-wrapper .ld-item-list.ld-lesson-list .ld-section-heading h3 {
+  margin-bottom: 0.5rem;
+}
+.learndash-wrapper h4,
+.learndash-wrapper .ld-item-list.ld-lesson-list .ld-section-heading h4 {
+  position: relative;
+  margin-bottom: 4px;
+  padding-bottom: 4px;
+}
+.learndash-wrapper h4::before,
+.learndash-wrapper .ld-item-list.ld-lesson-list .ld-section-heading h4::before {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-image: linear-gradient(90deg, #222 0%, #222 50%, #555 50%, #555 100%);
+}
+.learndash-wrapper p,
+.learndash-wrapper .ld-item-list.ld-lesson-list .ld-section-heading p {
+  font-size: clamp(14px, 2vw, 16px);
+}
+.learndash-wrapper ul,
+.learndash-wrapper ol > li,
+.learndash-wrapper .ld-item-list.ld-lesson-list .ld-section-heading ul,
+.learndash-wrapper .ld-item-list.ld-lesson-list .ld-section-heading ol > li {
+  font-size: clamp(14px, 2vw, 16px);
+}
+.learndash-wrapper ul span svg,
+.learndash-wrapper ol > li span svg,
+.learndash-wrapper .ld-item-list.ld-lesson-list .ld-section-heading ul span svg,
+.learndash-wrapper .ld-item-list.ld-lesson-list .ld-section-heading ol > li span svg {
+  font-size: clamp(14px, 1vw, 16px);
+}
+.learndash-wrapper ul .kb-svg-icon-wrap,
+.learndash-wrapper ol > li .kb-svg-icon-wrap,
+.learndash-wrapper .ld-item-list.ld-lesson-list .ld-section-heading ul .kb-svg-icon-wrap,
+.learndash-wrapper .ld-item-list.ld-lesson-list .ld-section-heading ol > li .kb-svg-icon-wrap {
+  margin-right: 6px;
+}
+
+/* 各チャプター見出しフォント */
+.learndash-wrapper .ld-item-list .ld-item-list-item .ld-item-name {
+  text-decoration: none;
+  font-weight: bold;
+}
+.learndash-wrapper .ld-item-list .ld-item-list-item .ld-item-details {
+  max-width: 89px;
+  width: 100%;
+}
+
+/* ログイン画面 */
+.login-password input[type=password] {
+  height: 24px;
+}
+
+/* -----------------------------------------------------
+*
+* LearnDash編集画面のコンテンツ ld-focus-main 要素内
+*
+----------------------------------------------------- */
+@media (max-width: 599px) {
+  .learndash-wrapper .ld-focus .ld-focus-header .ld-content-actions .ld-content-action {
+    padding: 0;
+  }
+}
+
+.learndash-wrapper .ld-focus .ld-focus-main {
+  /* h1 スタイリング */
   /* -------------------------- 
-  ページネーション
-  -------------------------- */
-  /* -------------------------- 
-  ページネーション
+    copyright コピーライト
   -------------------------- */
 }
-.ld-focus-content .ld-content-actions {
+.learndash-wrapper .ld-focus .ld-focus-main .ld-single-title {
+  padding: 5rem 5rem 3rem;
+  background: linear-gradient(135deg, #2c2c2c 0%, #303030 100%);
+}
+.learndash-wrapper .ld-focus .ld-focus-main .ld-single-title h1 {
+  max-width: 1008px;
+  margin: 0 auto;
+  color: #fff;
+}
+@media (max-width: 599px) {
+  .learndash-wrapper .ld-focus .ld-focus-main .ld-single-title {
+    padding: 1.5rem 1rem !important;
+    font-size: 1.6rem;
+  }
+}
+.learndash-wrapper .ld-focus .ld-focus-main .ld-focus-content {
+  margin-top: -1rem;
+  padding-top: 0;
+}
+.learndash-wrapper .ld-focus .ld-focus-main .learndash-wrapper .ld-tabs {
+  margin-top: clamp(1rem, 3vw, 2rem);
+}
+.learndash-wrapper .ld-focus .ld-focus-main .ast-footer-copyright {
+  padding: 0.5rem;
+  background: #111;
+  color: #fff;
+  text-align: center;
+}
+
+.ld-focus-content .learndash-wrapper {
+  /* -------------------------- 
+  一覧 セクション、トピック
+  -------------------------- */
+  /* -------------------------- 
+  ページネーション 前へ戻る/次へ進む
+  -------------------------- */
+}
+.ld-focus-content .learndash-wrapper ul.kt-svg-icon-list {
+  padding: 1rem 0.5rem 1rem 1rem !important;
+}
+.ld-focus-content .learndash-wrapper .ld-table-list .ld-table-list-header {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.ld-focus-content .learndash-wrapper .ld-table-list .ld-table-list-item-preview {
+  padding: 1rem;
+}
+.ld-focus-content .learndash-wrapper .ld-content-actions {
   justify-content: center;
 }
-.ld-focus-content .ld-content-actions .ld-button {
+.ld-focus-content .learndash-wrapper .ld-content-actions .ld-button {
   border-radius: 40px;
   padding: 1em 0.6em;
 }
-.ld-focus-content .ld-content-actions .ld-button .ld-text {
+.ld-focus-content .learndash-wrapper .ld-content-actions .ld-button .ld-text {
   padding: 0 0.8em;
 }
-.ld-focus-content .ld-content-actions .ld-content-action {
+.ld-focus-content .learndash-wrapper .ld-content-actions .ld-content-action {
   padding: 8px;
 }
-.ld-focus-content .ld-content-actions .ld-content-action .sfwd-mark-complete {
+.ld-focus-content .learndash-wrapper .ld-content-actions .ld-content-action .sfwd-mark-complete {
   margin-bottom: 1em;
 }
-.ld-focus-content .ld-content-actions .ld-course-step-back {
-  display: inline-block;
+.ld-focus-content .learndash-wrapper .ld-content-actions .ld-course-step-back {
+  justify-content: center;
   background: #eee;
   padding: 0.8em 2.2em;
   border-radius: 999px;
   transition: background 0.2s, color 0.2s, box-shadow 0.2s;
 }
-.ld-focus-content .ld-content-actions .ld-course-step-back:hover, .ld-focus-content .ld-content-actions .ld-course-step-back:focus {
+.ld-focus-content .learndash-wrapper .ld-content-actions .ld-course-step-back:hover, .ld-focus-content .learndash-wrapper .ld-content-actions .ld-course-step-back:focus {
   background: #f4f4f4;
-}
-
-body {
-  font-family: "Noto Sans JP", sans-serif;
-  color: #222;
-  background: #fff;
 }
 
 /* -----------------------------------------------------
 *
-* astraテーマのカスタマイズ HOME 下層ページ 投稿ページなど
+* LDフッター共通リンクボタン
 *
 ----------------------------------------------------- */
-.entry-meta {
+.ld-footer-category-content {
+  padding: 3rem;
+  background-color: #222;
+}
+@media (max-width: 599px) {
+  .ld-footer-category-content {
+    padding: 2rem 1rem;
+  }
+}
+
+.ld-footer-category-links {
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2em;
+  margin: 0 auto;
+  text-align: center;
+}
+.ld-footer-category-links .ld-footer-btn {
+  display: inline-block;
+  padding: 1em;
+  color: #fff;
+  border: 1px solid #fff !important;
+  border-radius: 2.5em;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.08rem;
+  letter-spacing: 0.04em;
+  box-shadow: 0 4px 18px rgba(79, 140, 255, 0.13), 0 1.5px 4px rgba(0, 0, 0, 0.07);
+  transition: background 0.25s, box-shadow 0.25s, transform 0.15s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border: none;
+  outline: none;
+}
+.ld-footer-category-links .ld-footer-btn::after {
+  position: absolute;
+  content: "";
+  width: 20px;
+  height: 20px;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.25s ease;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+@media (max-width: 599px) {
+  .ld-footer-category-links .ld-footer-btn::after {
+    width: 16px;
+    height: 16px;
+    right: 8px;
+  }
+}
+.ld-footer-category-links .ld-footer-btn::before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  transition: opacity 0.25s;
+  z-index: -1;
+  border-radius: inherit;
+}
+.ld-footer-category-links .ld-footer-btn:hover, .ld-footer-category-links .ld-footer-btn:focus {
+  box-shadow: 0 8px 24px rgba(55, 55, 55, 0.18), 0 2px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px) scale(1.01);
+}
+.ld-footer-category-links .ld-footer-btn:hover::after, .ld-footer-category-links .ld-footer-btn:focus::after {
+  transform: translateY(-50%) translateX(4px);
+}
+.ld-footer-category-links .ld-footer-btn:hover::before, .ld-footer-category-links .ld-footer-btn:focus::before {
+  opacity: 1;
+}
+.ld-footer-category-links .ld-footer-btn:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 8px rgba(79, 140, 255, 0.1);
+}
+
+@media (max-width: 599px) {
+  .ld-footer-category-links {
+    flex-direction: column;
+    gap: 1em;
+  }
+  .ld-footer-category-links .ld-footer-btn {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.5em 0;
+  }
+}
+/* -----------------------------------------------------
+*
+* 案件獲得サポート ID:326
+*
+----------------------------------------------------- */
+/* サイドバー非表示 レイアウト調整 */
+.course-project_order_support .learndash-wrapper .ld-focus .ld-focus-sidebar,
+.course-pro_only .learndash-wrapper .ld-focus .ld-focus-sidebar {
   display: none;
+}
+.course-project_order_support .learndash-wrapper .ld-focus .ld-focus-main,
+.course-pro_only .learndash-wrapper .ld-focus .ld-focus-main {
+  margin-right: 0;
+}
+.course-project_order_support .learndash-wrapper .ld-focus .learndash-wrapper.learndash-wrap.learndash-shortcode-wrap,
+.course-pro_only .learndash-wrapper .ld-focus .learndash-wrapper.learndash-wrap.learndash-shortcode-wrap {
+  display: none;
+}
+
+.faq_page {
+  width: 100%;
+  padding: 0 3rem;
+  /* ----------------------------------
+  // 検索機能
+  -----------------------------------*/
+  /* ----------------------------------
+  // 見出し
+  -----------------------------------*/
+  /* ----------------------------------
+  // アコーディオン
+  -----------------------------------*/
+  /* ----------------------------------
+  // 検索フォーム
+  -----------------------------------*/
+  /* ----------------------------------
+  // 戻るボタン
+  -----------------------------------*/
+}
+.faq_page .faq-content .hidden {
+  display: none;
+}
+.faq_page .faq-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.faq_page .faq-search-container {
+  margin: 2rem 0;
+  padding: 1rem;
+  background: #f5f5f5;
+  border-radius: 8px;
+}
+.faq_page .faq-search-form {
+  display: flex;
+  gap: 1rem;
+}
+.faq_page .faq-search-title {
+  margin: 2rem 0;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #eee;
+}
+.faq_page .faq-search-input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+.faq_page .faq-search-button {
+  padding: 0.75rem 1.5rem;
+  background: #007cba;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+.faq_page .faq-search-button:hover {
+  background: #005a87;
+}
+.faq_page .faq-search-results {
+  margin: 2rem 0;
+}
+.faq_page .faq-search-item {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.faq_page .faq-back-link:hover {
+  text-decoration: underline;
+}
+.faq_page .faq-back-link {
+  display: inline-block;
+  padding: 0.8em 1.5em;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 9999px;
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+.faq_page .faq-back-link:hover {
+  background-color: #f5f5f5;
+  border-color: #ccc;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  text-decoration: none;
+}
+.faq_page h3 {
+  position: relative;
+  padding-left: 1.2em;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+.faq_page h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 100%;
+  background-color: #222;
+  border-radius: 2px;
+}
+.faq_page .kt-accordion-panel-inner {
+  border-radius: 0 0 8px 8px !important;
+}
+.faq_page .wp-block-kadence-accordion.alignnone .kt-row-column-wrap {
+  padding: 1.5rem 1.5rem 0;
+}
+.faq_page .faq-search-input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+.faq_page .faq-back-link-container {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 3rem;
+}
+.faq_page .faq-content .wp-block-kadence-accordion.alignnone .wp-block-group.wp-block-group-is-layout-constrained {
+  display: block !important;
+}
+
+.swiper-container {
+  padding-bottom: 48px;
+}
+
+.swiper-slide {
+  background: #303030;
+  color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.swiper-slide > div figure img {
+  height: 160px;
+  border-radius: 0;
+}
+.swiper-slide > div .wp-block-group {
+  padding: 0 1rem 1rem;
+}
+.swiper-slide > div .wp-block-group h4 {
+  color: #fff;
+}
+.swiper-slide > div .wp-block-group p {
+  text-align: left;
+}
+.swiper-slide.swiper-slide-active {
+  margin-top: 12px;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #6c3fc5;
+  background: #fff;
+  border: none;
+  font-size: 1rem;
+  top: 40%;
+}
+
+.swiper-pagination-bullet-active {
+  background: #6c3fc5;
+}
+
+/* -----------------------------------------------------
+*
+* 学習のコツ・デザインTIPsページ専用
+*
+----------------------------------------------------- */
+.tips_page {
+  /* 既存の画像スタイル */
+}
+.tips_page img {
+  height: 180px;
+}
+.tips_page .l-grid-a ul,
+.tips_page .l-grid-a ol {
+  padding: 0 !important;
+}
+
+.tips_page .fixed-tips-index {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  transition: right 0.3s ease;
+  z-index: 1000;
+  padding: 24px 64px 24px 16px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+.tips_page .fixed-tips-index.open {
+  right: 0;
+}
+.tips_page .fixed-tips-index .wp-block-buttons {
+  flex-direction: column;
+  gap: 15px;
+  align-items: stretch;
+}
+.tips_page .fixed-tips-index .wp-block-button {
+  width: 100%;
+}
+.tips_page .fixed-tips-index .wp-block-button__link {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 15px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  border: 2px solid #e0e0e0;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+.tips_page .fixed-tips-index .wp-block-button__link:hover {
+  border-color: #9c88ff;
+  transform: translateY(-2px);
+}
+.tips_page .fixed-tips-index .wp-block-button.is-active .wp-block-button__link {
+  border-color: #9c88ff;
+  box-shadow: 0 2px 5px rgba(156, 136, 255, 0.3);
+}
+.tips_page .fixed-tips-index .drawer-close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 1002;
+  transition: background 0.3s ease;
+}
+.tips_page .drawer-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1001;
+  background: #9c88ff;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+.tips_page .drawer-toggle.visible {
+  opacity: 1;
+}
+.tips_page .drawer-toggle:hover {
+  background: #8a75ff;
+  transform: scale(1.1);
+}
+.tips_page .drawer-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: #fff;
+  margin: 2px 0;
+  transition: all 0.3s ease;
+  border-radius: 1px;
+}
+.tips_page .drawer-toggle.open span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 4px);
+}
+.tips_page .drawer-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+.tips_page .drawer-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -3px);
+}
+.tips_page .drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+.tips_page .drawer-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+.tips_page .main-content {
+  margin-left: 0;
+  padding: 80px 20px 20px;
+  min-height: 100vh;
+  background: #f5f5f5;
+  transition: margin-left 0.3s ease;
+}
+/*!
+Theme Name: Astra Child
+Theme URI: https://wpastra.com/
+Description: This is a child theme for Astra.
+Author: GROWTHING inc.
+Author URI: https://growthing.co.jp/
+Template: astra
+Version: 1.0.0
+*/
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  color: #222;
+}
+
+/* ヘッダー幅 */
+.ast-builder-grid-row {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ボタンタグ */
+.button {
+  text-decoration: none;
 }
 
 iframe {
@@ -253,7 +1097,380 @@ iframe {
   aspect-ratio: 16/9;
 }
 
-figure {
+figure,
+iframe {
   margin-bottom: 1rem;
+}
+
+/* Hタグ */
+h5 {
+  margin-bottom: 1rem;
+}
+
+/* -----------------------------------------------------
+*
+* テーブルタグ 横スクロール
+*
+----------------------------------------------------- */
+.sp-table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.sp-table-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+.sp-table-scroll::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+.sp-table-scroll::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+.sp-table-scroll::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+.sp-table-scroll table {
+  min-width: 1440px;
+  width: auto;
+  position: relative;
+}
+.sp-table-scroll table th,
+.sp-table-scroll table td {
+  min-width: 120px;
+  white-space: nowrap;
+  padding: 8px 12px;
+  position: relative;
+  font-size: 14px;
+}
+.sp-table-scroll table th:nth-child(2), .sp-table-scroll table th:nth-child(3), .sp-table-scroll table th:nth-child(4), .sp-table-scroll table th:nth-child(5),
+.sp-table-scroll table td:nth-child(2),
+.sp-table-scroll table td:nth-child(3),
+.sp-table-scroll table td:nth-child(4),
+.sp-table-scroll table td:nth-child(5) {
+  white-space: normal;
+  min-width: 150px;
+}
+.sp-table-scroll table th:first-child,
+.sp-table-scroll table td:first-child {
+  position: -webkit-sticky;
+  position: sticky;
+  white-space: break-spaces;
+  left: 0;
+  z-index: 10;
+  width: 220px;
+  min-width: 100px;
+  background-color: #fff;
+}
+.sp-table-scroll table th:first-child::after,
+.sp-table-scroll table td:first-child::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+  background-color: #ddd;
+  box-shadow: 1px 0 3px rgba(0, 0, 0, 0.1);
+}
+@media (max-width: 768px) {
+  .sp-table-scroll table th:first-child,
+.sp-table-scroll table td:first-child {
+    width: 160px;
+  }
+}
+@media (max-width: 599px) {
+  .sp-table-scroll table th:first-child,
+.sp-table-scroll table td:first-child {
+    min-width: 130px;
+    width: 140px;
+  }
+}
+@media (max-width: 599px) {
+  .sp-table-scroll table {
+    min-width: 640px;
+  }
+}
+.sp-table-scroll thead th:first-child {
+  background-color: #f8f9fa;
+  z-index: 11;
+}
+.sp-table-scroll tbody tr:nth-child(even) td:first-child {
+  background-color: #f9f9f9;
+}
+.sp-table-scroll::after {
+  content: "← スクロールできます";
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+  margin-top: 8px;
+  opacity: 0.7;
+}
+
+table {
+  border-collapse: collapse;
+}
+table th,
+table td {
+  border: 1px solid #ddd;
+  text-align: left;
+  vertical-align: top;
+}
+table th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+}
+table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* -----------------------------------------------------
+*
+* astraテーマのカスタマイズ HOME 下層ページ 投稿ページなど
+*
+----------------------------------------------------- */
+.site-content .ast-container {
+  padding: 2rem 0;
+  /* リストタグ */
+}
+@media (max-width: 799px) {
+  .site-content .ast-container {
+    padding-top: 0 !important;
+  }
+}
+.site-content .ast-container ol,
+.site-content .ast-container ul {
+  margin-left: 1rem !important;
+}
+@media (max-width: 768px) {
+  .site-content .ast-container ol,
+.site-content .ast-container ul {
+    margin-bottom: 1em !important;
+  }
+}
+
+/* 全体の幅 */
+.page-template-default {
+  /* ヘッダータイトル */
+  /* ブロックエディタ セクション */
+}
+.page-template-default .content-area {
+  max-width: 1200px;
+  margin: 0 auto !important;
+}
+.page-template-default .entry-header {
+  margin-bottom: 0;
+  padding: 2rem 48px 0;
+}
+.page-template-default .entry-header .entry-title {
+  max-width: 1200px;
+  margin: 0;
+}
+@media (max-width: 829px) {
+  .page-template-default .entry-header {
+    padding: 2rem clamp(1rem, 3vw, 2rem);
+  }
+}
+@media (max-width: 599px) {
+  .page-template-default .kt-inside-inner-col {
+    padding: 2rem clamp(1rem, 3vw, 2rem) !important;
+  }
+}
+
+.entry-meta {
+  display: none;
+}
+
+/* ボタン */
+.kb-button.kt-btn-has-svg-true {
+  padding: 0.5rem;
+}
+
+/* -----------------------------------------------------
+*
+* テンプレート
+*
+----------------------------------------------------- */
+/* PC2カラム SP縦並び */
+.l-guideline .l-grid-a > div,
+.l-grid-a {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+@media (max-width: 768px) {
+  .l-guideline .l-grid-a > div,
+.l-grid-a {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+.l-guideline .l-grid-a > div ul,
+.l-guideline .l-grid-a > div ol,
+.l-grid-a ul,
+.l-grid-a ol {
+  margin-top: 0 !important;
+  margin-left: 0 !important;
+  padding: 1rem 1rem 1rem 2.5rem !important;
+}
+.l-guideline .l-grid-a > div ul li:not(:last-child),
+.l-guideline .l-grid-a > div ol li:not(:last-child),
+.l-grid-a ul li:not(:last-child),
+.l-grid-a ol li:not(:last-child) {
+  margin-bottom: 8px;
+}
+.l-guideline .l-grid-a > div p,
+.l-grid-a p {
+  margin-bottom: 1rem;
+}
+
+/* -----------------------------------------------------
+*
+* 学習のコツ・デザインTIPsページ専用
+*
+----------------------------------------------------- */
+.tips_page img {
+  height: 180px;
+}
+.tips_page .l-grid-a ul,
+.tips_page .l-grid-a ol {
+  padding: 0 !important;
+}
+.tips_page .l-grid-b img {
+  height: auto;
+}
+
+/* -----------------------------------------------------
+*
+* 内部リンクの固定ページ専用
+*
+----------------------------------------------------- */
+.page-link {
+  /* LDページとデザイン統一 */
+}
+.page-link h2 {
+  position: relative;
+  margin-bottom: 1rem;
+  padding-top: 0.25rem;
+  padding-left: 20px;
+  padding-bottom: 0.25rem;
+  text-align: left;
+  font-size: 1.5rem;
+}
+.page-link h2::before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 100%;
+  background-color: #222;
+}
+
+.list-bg {
+  background: #f8f8f8;
+}
+
+.l-grid-a > div {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.l-grid-a > div:hover {
+  transform: scale(1.02);
+}
+
+/* -----------------------------------------------------
+*
+* カウンター用グループ H3に付与
+*
+----------------------------------------------------- */
+.column-counter {
+  counter-reset: item;
+}
+.column-counter .wp-block-kadence-column {
+  counter-increment: item;
+}
+.column-counter .wp-block-kadence-column h3 {
+  position: relative;
+  margin-top: 0.5rem;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  padding-left: 2.5rem;
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 600px) {
+  .column-counter .wp-block-kadence-column h3 {
+    padding-top: 0;
+    padding-left: 1.5rem;
+  }
+}
+.column-counter .wp-block-kadence-column h3::before {
+  position: absolute;
+  content: counter(item);
+  top: 0;
+  left: -4px;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #6528f7 0%, #a084ee 100%);
+  color: #fff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.3rem;
+  border: 2.5px solid #fff;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s;
+  opacity: 0;
+  -webkit-animation: counterFadeIn 0.7s 0.1s ease-out forwards;
+          animation: counterFadeIn 0.7s 0.1s ease-out forwards;
+  z-index: 2;
+}
+@media (max-width: 600px) {
+  .column-counter .wp-block-kadence-column h3::before {
+    width: 28px;
+    height: 28px;
+    font-size: 0.85rem;
+  }
+}
+.column-counter .wp-block-kadence-column p {
+  margin-top: 0.5rem;
+}
+
+@-webkit-keyframes counterFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes counterFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@media (max-width: 599px) {
+  .ld-focus-content {
+    padding: 0 1rem !important;
+  }
 }
 /*# sourceMappingURL=style.css.map */

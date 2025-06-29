@@ -1,3 +1,7 @@
+.ld-table-list .ld-table-list-item-preview {
+  padding: 0 !important;
+}
+
 .ld-focus-content .ld-content-actions {
   justify-content: center;
 }
@@ -32,5 +36,3 @@
 }
 
 
-
-/*# sourceMappingURL=learndash.min.css.map */

@@ -2,7 +2,15 @@
   "name": "astra-child-theme",
   "version": "1.0.0",
   "scripts": {
-    "sass:watch": "sass --watch scss/style.scss:style.css scss:assets/css --style=expanded --no-source-map"
+    "scss": "npm run sass:style && npm run sass:assets",
+    "sass:style": "sass scss/style.scss:style.css --style=expanded --embed-source-map",
+    "sass:assets": "sass scss:assets/css --style=compressed --no-source-map",
+    "watch": "npm-run-all --parallel watch:style watch:assets",
+    "watch:style": "sass --watch scss/style.scss:style.css --style=expanded --embed-source-map",
+    "watch:assets": "sass --watch scss:assets/css --style=compressed --no-source-map"
   },
-  "devDependencies": {}
-} 
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.77.6"
+  }
+}

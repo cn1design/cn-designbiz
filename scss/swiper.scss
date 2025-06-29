@@ -2,10 +2,10 @@
 // Swiper用のカスタムスタイル
 
 .swiper-container {
-  padding-bottom: 32px;
+  padding-bottom: 48px;
 }
 .swiper-slide {
-  background: #222;
+  background: #303030;
   color: #fff;
   border-radius: 12px;
   overflow: hidden;
@@ -13,13 +13,31 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  > div {
+    figure img {
+      height: 160px;
+      border-radius: 0;
+    }
+    .wp-block-group {
+      padding: 0 1rem 1rem;
+      h4 {
+        color: #fff;
+      }
+      p {
+        text-align: left;
+      }
+    }
+  }
+  &.swiper-slide-active {
+    margin-top: 12px;
+  }
 }
 .swiper-button-next,
 .swiper-button-prev {
   color: #6c3fc5;
-  background: none;
+  background: #fff;
   border: none;
-  font-size: 2rem;
+  font-size: 1rem;
   top: 40%;
 }
 .swiper-pagination-bullet-active {

@@ -1,27 +1,39 @@
+/*!
+Theme Name: Astra Child
+Theme URI: https://wpastra.com/
+Description: This is a child theme for Astra.
+Author: GROWTHING inc.
+Author URI: https://growthing.co.jp/
+Template: astra
+Version: 1.0.0
+*/
 // style.scss
 // 共通スタイルや変数、mixinなどをここに記述
 
-@use "responsive";
-@use "accordion";
-@use "swiper";
-@use "download";
-@use "learndash";
+@use "responsive" as *;
+@use "download" as *;
+@use "accordion" as *;
+@use "my-page" as *;
+@use "learndash" as *;
+@use "faq" as *;
+@use "swiper" as *;
+@use "tips" as *;
 
 body {
-  font-family: "Noto Sans JP", sans-serif;
-  color: #222;
-  background: #fff;
+  font-family: "Noto Sans JP", sans-serif; //フォントファミリー
+  color: #222; //テキストカラー
 }
 
-/* -----------------------------------------------------
-*
-* astraテーマのカスタマイズ HOME 下層ページ 投稿ページなど
-*
------------------------------------------------------ */
-.site-content {
+/* ヘッダー幅 */
+.ast-builder-grid-row {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
 }
-.entry-meta {
-  display: none;
+
+/* ボタンタグ */
+.button {
+  text-decoration: none;
 }
 
 iframe {
@@ -30,6 +42,384 @@ iframe {
   aspect-ratio: 16 / 9;
 }
 
-figure {
+figure,
+iframe {
   margin-bottom: 1rem;
+}
+
+/* Hタグ */
+h5 {
+  margin-bottom: 1rem;
+}
+
+/* -----------------------------------------------------
+*
+* テーブルタグ 横スクロール
+*
+----------------------------------------------------- */
+// sp-table-scrollクラスのテーブルをレスポンシブ対応
+.sp-table-scroll {
+  // コンテナをスクロール可能にする
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; // iOSでのスムーズスクロール
+
+  // スクロールバーのスタイリング（Webkit系ブラウザ）
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+
+    &:hover {
+      background: #a8a8a8;
+    }
+  }
+
+  // テーブル本体の設定
+  table {
+    // テーブルの最小幅を設定（内容に応じて調整可能）
+    min-width: 1440px;
+    width: auto;
+    position: relative; // 固定列のための基準
+
+    // セルの最小幅を設定して内容が見やすくする
+    th,
+    td {
+      min-width: 120px;
+      white-space: nowrap; // 改行を防ぐ場合
+      padding: 8px 12px;
+      position: relative;
+      font-size: 14px;
+
+      // 長いテキストがある場合は改行を許可
+      &:nth-child(2),  // 概要列
+      &:nth-child(3),  // メリット列
+      &:nth-child(4),  // デメリット列
+      &:nth-child(5) {
+        // 向いている人列
+        white-space: normal;
+        min-width: 150px;
+      }
+
+      // カテゴリ名列は少し狭く
+      &:first-child {
+        position: sticky;
+        white-space: break-spaces;
+        left: 0;
+        z-index: 10;
+        width: 220px;
+        min-width: 100px;
+        background-color: #fff; // 背景色を設定
+        // 境界線を追加してわかりやすく
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 1px;
+          height: 100%;
+          background-color: #ddd;
+          box-shadow: 1px 0 3px rgba(0, 0, 0, 0.1);
+        }
+        // 768px以下でのスクロール設定
+        @media (max-width: 768px) {
+          width: 160px;
+        }
+        // 599px以下でのスクロール設定
+        @media (max-width: 599px) {
+          min-width: 130px;
+          width: 140px;
+        }
+      }
+    }
+    // 599px以下でのスクロール設定
+    @media (max-width: 599px) {
+      min-width: 640px;
+    }
+  }
+  // ヘッダーの1列目のスタイル調整
+  thead th:first-child {
+    background-color: #f8f9fa; // ヘッダー背景色を維持
+    z-index: 11; // ヘッダーを他より前面に
+  }
+
+  // 偶数行の1列目の背景色調整
+  tbody tr:nth-child(even) td:first-child {
+    background-color: #f9f9f9;
+  }
+
+  // スクロールのヒントを表示（オプション）
+  &::after {
+    content: "← スクロールできます";
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    margin-top: 8px;
+    opacity: 0.7;
+  }
+}
+
+// 追加のスタイル調整（必要に応じて）
+table {
+  // テーブルの基本スタイル
+  border-collapse: collapse;
+
+  th,
+  td {
+    border: 1px solid #ddd;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+  }
+
+  // ストライプ効果（お好みで）
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+}
+/* -----------------------------------------------------
+*
+* astraテーマのカスタマイズ HOME 下層ページ 投稿ページなど
+*
+----------------------------------------------------- */
+.site-content {
+  .ast-container {
+    padding: 2rem 0;
+
+    @media (max-width: 799px) {
+      padding-top: 0 !important;
+    }
+    /* リストタグ */
+    ol,
+    ul {
+      margin-left: 1rem !important;
+      @media (max-width: 768px) {
+        margin-bottom: 1em !important;
+      }
+    }
+  }
+}
+
+/* 全体の幅 */
+.page-template-default {
+  .content-area {
+    max-width: 1200px;
+    margin: 0 auto !important;
+  }
+  /* ヘッダータイトル */
+  .entry-header {
+    margin-bottom: 0;
+    padding: 2rem 48px 0;
+    .entry-title {
+      max-width: 1200px;
+      margin: 0;
+    }
+    @media (max-width: 829px) {
+      padding: 2rem clamp(1rem, 3vw, 2rem);
+    }
+  }
+
+  /* ブロックエディタ セクション */
+  .kt-inside-inner-col {
+    @media (max-width: 599px) {
+      padding: 2rem clamp(1rem, 3vw, 2rem) !important;
+    }
+  }
+}
+.entry-meta {
+  display: none;
+}
+
+/* ボタン */
+.kb-button.kt-btn-has-svg-true {
+  padding: 0.5rem;
+}
+
+/* -----------------------------------------------------
+*
+* テンプレート
+*
+----------------------------------------------------- */
+
+/* PC2カラム SP縦並び */
+.l-guideline .l-grid-a > div,
+.l-grid-a {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  ul,
+  ol {
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+    padding: 1rem 1rem 1rem 2.5rem !important;
+    li:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+
+  p {
+    margin-bottom: 1rem;
+  }
+}
+
+/* -----------------------------------------------------
+*
+* 学習のコツ・デザインTIPsページ専用
+*
+----------------------------------------------------- */
+
+.tips_page {
+  img {
+    height: 180px;
+  }
+  .l-grid-a {
+    ul,
+    ol {
+      padding: 0 !important;
+    }
+  }
+  .l-grid-b {
+    img {
+      height: auto;
+    }
+  }
+}
+
+/* -----------------------------------------------------
+*
+* 内部リンクの固定ページ専用
+*
+----------------------------------------------------- */
+.page-link {
+  /* LDページとデザイン統一 */
+  h2 {
+    position: relative;
+    margin-bottom: 1rem;
+    padding-top: 0.25rem;
+    padding-left: 20px;
+    padding-bottom: 0.25rem;
+    text-align: left;
+    font-size: 1.5rem;
+    &::before {
+      position: absolute;
+      content: "";
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 100%;
+      background-color: #222;
+    }
+  }
+}
+
+.list-bg {
+  background: #f8f8f8;
+}
+
+.l-grid-a > div {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+/* -----------------------------------------------------
+*
+* カウンター用グループ H3に付与
+*
+----------------------------------------------------- */
+
+.column-counter {
+  counter-reset: item;
+
+  .wp-block-kadence-column {
+    counter-increment: item;
+
+    h3 {
+      position: relative;
+      margin-top: 0.5rem;
+      padding-top: 0.4rem;
+      padding-bottom: 0.4rem;
+      padding-left: 2.5rem;
+      display: flex;
+      align-items: center;
+
+      @media (max-width: 600px) {
+        padding-top: 0;
+        padding-left: 1.5rem;
+      }
+
+      &::before {
+        position: absolute;
+        content: counter(item);
+        top: 0;
+        left: -4px;
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, #6528f7 0%, #a084ee 100%);
+        color: #fff;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.3rem;
+        border: 2.5px solid #fff;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s;
+        opacity: 0;
+        animation: counterFadeIn 0.7s 0.1s ease-out forwards;
+        z-index: 2;
+      }
+
+      @media (max-width: 600px) {
+        &::before {
+          width: 28px;
+          height: 28px;
+          font-size: 0.85rem;
+        }
+      }
+    }
+    p {
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+@keyframes counterFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@media (max-width: 599px) {
+  .ld-focus-content {
+    padding: 0 1rem !important;
+  }
 }

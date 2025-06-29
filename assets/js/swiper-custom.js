@@ -5,10 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
         speed: 400,
         spaceBetween: 20,
         lazy: true,
-        autoplay: {
-          delay: 3000,
-          disableOnInteraction: false
-        },
+        centeredSlides: true,
+        // autoplay: {
+        //   delay: 6000,
+        //   disableOnInteraction: false
+        // },
         navigation: {
           nextEl: container.querySelector('.swiper-button-next'),
           prevEl: container.querySelector('.swiper-button-prev')
@@ -19,9 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         breakpoints: {
           0: { slidesPerView: 1.2 },
-          768: { slidesPerView: 2 },
-          1024: { slidesPerView: 3 },
-          1440: { slidesPerView: 4 }
+          768: { slidesPerView: 1.5 },
+          1024: { slidesPerView: 1.8 },
+          1440: { slidesPerView: 2.8 }
         }
       });
     });

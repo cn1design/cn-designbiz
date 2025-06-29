@@ -59,9 +59,9 @@ if ( have_posts() ) :
 			true
 		); ?>
 
-	<div class="ld-focus-main">
+<div class="ld-focus-main">
 
-		<?php
+    <?php
 		/**
 		 * Fires before the masthead in the focus template.
 		 *
@@ -93,9 +93,13 @@ if ( have_posts() ) :
 		do_action( 'learndash-focus-masthead-after', $course_id, $user_id );
 		?>
 
-		<div class="ld-focus-content">
+    <div class="ld-single-title">
+        <h1><?php the_title(); ?></h1>
+    </div>
 
-			<?php
+    <div class="ld-focus-content">
+
+        <?php
 			/**
 			 * Fires before the title in the focus template.
 			 *
@@ -107,9 +111,7 @@ if ( have_posts() ) :
 			do_action( 'learndash-focus-content-title-before', $course_id, $user_id );
 			?>
 
-			<h1><?php the_title(); ?></h1>
-
-			<?php
+        <?php
 			/**
 			 * Fires before the content in the focus template.
 			 *
@@ -121,9 +123,9 @@ if ( have_posts() ) :
 			do_action( 'learndash-focus-content-content-before', $course_id, $user_id );
 			?>
 
-			<?php the_content(); ?>
+        <?php the_content(); ?>
 
-			<?php
+        <?php
 			/**
 			 * Fires after the content in the focus template.
 			 *
@@ -135,7 +137,7 @@ if ( have_posts() ) :
 			do_action( 'learndash-focus-content-content-after', $course_id, $user_id );
 			?>
 
-			<?php
+        <?php
 				wp_link_pages(
 					array(
 						'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'learndash' ),
@@ -144,7 +146,7 @@ if ( have_posts() ) :
 				);
 			?>
 
-			<?php
+        <?php
 			/**
 			 * Filters whether to show existing comments when comments are not enabled.
 			 *
@@ -180,7 +182,7 @@ if ( have_posts() ) :
 			}
 			?>
 
-			<?php
+        <?php
 			/**
 			 * Fires at the focus mode content end.
 			 *
@@ -191,11 +193,11 @@ if ( have_posts() ) :
 			 */
 			do_action( 'learndash-focus-content-end', $course_id, $user_id );
 			?>
-		</div> <!--/.ld-focus-content-->
+    </div>
+    <!--/.ld-focus-content-->
 
-	</div> <!--/.ld-focus-main-->
-
-		<?php
+    <!-- 追加: フッターリンク -->
+    <?php
 		/**
 		 * Fires before the footer in the focus template.
 		 *
@@ -206,6 +208,37 @@ if ( have_posts() ) :
 		 */
 		do_action( 'learndash-focus-content-footer-before', $course_id, $user_id );
 
+		// === LDフッター共通リンクボタン（カスタマイザー連携） ===
+		?>
+
+    <div class="ld-footer-category-content">
+        <?php echo display_ld_footer_links(); ?>
+    </div>
+
+    <?php if ( function_exists( 'do_action' ) ) : ?>
+    <?php do_action( 'astra_footer_copyright' ); ?>
+    <?php endif; ?>
+    <!-- /追加: フッターリンク -->
+
+    <?php
+    echo '<div style="color:magenta;">[DEBUG] テンプレート側呼び出し到達</div>';
+    global $post;
+    echo '<div style="color:gray;">[DEBUG] learndash_course_get_children_of: ' . (function_exists('learndash_course_get_children_of') ? 'OK' : 'NG') . '</div>';
+    echo '<div style="color:gray;">[DEBUG] display_user_accessible_chapters: ' . (function_exists('display_user_accessible_chapters') ? 'OK' : 'NG') . '</div>';
+    $course_id = learndash_get_course_id($post->ID);
+    $user_id = get_current_user_id();
+    echo '<div style="color:blue;">[DEBUG] $course_id: ' . htmlspecialchars(print_r($course_id, true)) . ' / $user_id: ' . htmlspecialchars(print_r($user_id, true)) . '</div>';
+    if ($course_id && $user_id && function_exists('learndash_course_get_children_of') && function_exists('display_user_accessible_chapters')) {
+        echo '<div style="color:green;">[DEBUG] display_user_accessible_chapters呼び出し</div>';
+        display_user_accessible_chapters($course_id, $user_id);
+    }
+    ?>
+
+</div>
+<!--/.ld-focus-main-->
+
+
+<?php
 		learndash_get_template_part(
 			'focus/footer.php',
 			array(

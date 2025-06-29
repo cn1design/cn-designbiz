@@ -1,0 +1,152 @@
+.faq_page {
+  width: 100%;
+  padding: 0 3rem;
+
+  /* ----------------------------------
+  // 検索機能
+  -----------------------------------*/
+  .faq-content .hidden {
+    display: none;
+  }
+
+  .faq-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .faq-search-container {
+    margin: 2rem 0;
+    padding: 1rem;
+    background: #f5f5f5;
+    border-radius: 8px;
+  }
+
+  .faq-search-form {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .faq-search-title {
+    margin: 2rem 0;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #eee;
+  }
+
+  .faq-search-input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+
+  .faq-search-button {
+    padding: 0.75rem 1.5rem;
+    background: #007cba;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s;
+  }
+
+  .faq-search-button:hover {
+    background: #005a87;
+  }
+
+  .faq-search-results {
+    margin: 2rem 0;
+  }
+
+  .faq-search-item {
+    margin: 1rem 0;
+    padding: 1rem;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  .faq-back-link:hover {
+    text-decoration: underline;
+  }
+
+  .faq-back-link {
+    display: inline-block;
+    padding: 0.8em 1.5em;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 9999px;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.2s ease;
+  }
+
+  .faq-back-link:hover {
+    background-color: #f5f5f5;
+    border-color: #ccc;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    text-decoration: none;
+  }
+
+  /* ----------------------------------
+  // 見出し
+  -----------------------------------*/
+  h3 {
+    position: relative;
+    padding-left: 1.2em;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+  }
+
+  h3::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 100%;
+    background-color: #222;
+    border-radius: 2px;
+  }
+
+  /* ----------------------------------
+  // アコーディオン
+  -----------------------------------*/
+  .kt-accordion-panel-inner {
+    border-radius: 0 0 8px 8px !important;
+  }
+
+  .wp-block-kadence-accordion.alignnone .kt-row-column-wrap {
+    padding: 1.5rem 1.5rem 0;
+  }
+
+  /* ----------------------------------
+  // 検索フォーム
+  -----------------------------------*/
+  .faq-search-input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+
+  /* ----------------------------------
+  // 戻るボタン
+  -----------------------------------*/
+  .faq-back-link-container {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 3rem;
+  }
+
+  .faq-content
+    .wp-block-kadence-accordion.alignnone
+    .wp-block-group.wp-block-group-is-layout-constrained {
+    display: block !important;
+  }
+}
